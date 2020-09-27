@@ -1,0 +1,123 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:400,800&display=swap&subset=latin-ext"
+      rel="stylesheet"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body class="form-pages backcol">
+    <ul class="alert">
+      <div class="close-alert">✖️</div>
+      <li>
+        <div class="alert-red"></div>
+        <div class="alert-blue"></div>
+      </li>
+    </ul>
+
+    <div class="headerCorner">
+      <h1><b>speed</b>Stevens</h1>
+    </div>
+
+    <div class="main-container3">
+      <input type="text" id="myInput" class="input-container" />
+      <span onclick="newElement()" class="addBtn"><b>Add</b></span>
+    </div>
+
+    <div class="main-container2" style="display: table-row;">
+      <div>
+        <div id="myDIV" class="header" style="width: 50%; display: table-cell;">
+          <h2>
+            Add Your Splits
+          </h2>
+
+          <ul id="myUL" style="font-family:'Courier New'; font-size:25px;"></ul>
+        </div>
+        <div style="width: 50%;display: table-cell;">
+          <h2>
+            Time
+          </h2>
+          <ul id="myUL1" style="font-family:'Courier New';font-size:25px;"></ul>
+        </div>
+      </div>
+
+      <script>
+        // Create a "close" button and append it to each list item
+
+        // Click on a close button to hide the current list item
+
+        // Create a new list item when clicking on the "Add" button
+
+        function newElement() {
+          var li = document.createElement("li");
+          var inputValue = document.getElementById("myInput").value;
+          //var mc = document.getElementsByClassName("main-container").value;
+          var t = document.createTextNode(inputValue);
+          li.appendChild(t);
+          document.getElementById("myUL").appendChild(li);
+          document.getElementById("myInput").value = "";
+
+          var span = document.createElement("SPAN");
+          //var txt = document.createTextNode("\u00D7");
+          span.className = "close";
+          //span.appendChild(txt);
+          li.appendChild(span);
+          //mc.appendChild(t);
+
+          for (i = 0; i < close.length; i++) {
+            close[i].onclick = function() {
+              var div = this.parentElement;
+              div.style.display = "none";
+            };
+          }
+        }
+      </script>
+      <div class="stopwatch">
+        <div class="circle">
+          <span
+            class="time"
+            id="display"
+            style="font-size:50px;color: #FFF;
+    	text-shadow: 1px 1px 1px #333"
+            >00:00:00:00</span
+          >
+        </div>
+
+        <div class="controls">
+          <button class="buttonPlay" onclick="split()">
+            <img id="playButton" src="play.png" />
+
+            <img id="pauseButton" src="pause.png" />
+          </button>
+
+          <!-- credit to pixel perfect for button images-->
+
+          <button class="buttonReset">
+            <img id="resetButton" src="stop.png" />
+          </button>
+        </div>
+        <script>
+          function erase() {
+            document.getElementById("myUL").innerHTML = "";
+            document.getElementById("myUL1").innerHTML = "";
+          }
+        </script>
+        <button onclick="erase()" class="eraseall"><b>erase</b>Splits</button>
+      </div>
+      <script src="script.js"></script>
+    </div>
+
+    <footer>
+      <p></p>
+    </footer>
+  </body>
+</html>
